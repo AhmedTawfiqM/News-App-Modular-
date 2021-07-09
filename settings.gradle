@@ -1,0 +1,5 @@
+rootProject.name = "NewsApp"
+include ':app'
+include ':common:core'
+include ':common:presentation'
+include ':common:data'

@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion AppConfig.compileSdkVersion
+    buildToolsVersion AppConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.atdev.news"
+        minSdkVersion AppConfig.minSdkVersion
+        targetSdkVersion AppConfig.targetSdkVersion
+        versionCode AppConfig.versionCode
+        versionName AppConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        defaultSigningConfig {
+            storeFile file("C:\\Users\\Ahmed Tawfiq\\.android\\defaultkey.jks")
+            storePassword '123456'
+            keyAlias = 'Key0'
+            keyPassword '123456'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.defaultSigningConfig
+
+            buildConfigField("String", "API_BASE_URL", "\"${BaseUrl.baseUrlPROD}\"")
+            buildConfigField("String", "API_TOKEN_DB", "\"${BaseUrl.dbAPITokenPROD}\"")
+        }
+        stage {
+            minifyEnabled false
+            signingConfig signingConfigs.defaultSigningConfig
+
+            buildConfigField("String", "API_BASE_URL", "\"${BaseUrl.baseUrlSTAGE}\"")
+            buildConfigField("String", "API_TOKEN_DB", "\"${BaseUrl.dbAPITokenSTAGE}\"")
+        }
+        dev {
+            minifyEnabled false
+            signingConfig signingConfigs.defaultSigningConfig
+
+            buildConfigField("String", "API_BASE_URL", "\"${BaseUrl.baseUrlDEVELOP}\"")
+            buildConfigField("String", "API_TOKEN_DB", "\"${BaseUrl.dbAPITokenDEVELOP}\"")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api project(AppModules.presentation)
+    api project(AppModules.data)
+}
