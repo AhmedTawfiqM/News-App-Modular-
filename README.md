@@ -14,7 +14,7 @@
 - Build Variant
 - buildSrc  (Gradle Managment)
 
-- AppRequester login for asyncronous tasks
+- AppRequester for asyncronous tasks
 - BaseActivity 
 - BaseFragment
 - BaseViewModel
