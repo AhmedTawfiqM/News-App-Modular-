@@ -18,7 +18,8 @@ object Deps {
     const val gson_google = "com.google.code.gson:gson:${Versions.gson}"
 
     //okHttp
-    const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logging_interceptor}"
+    const val logging_interceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.logging_interceptor}"
 
     //coroutines
     const val coroutines_core =
@@ -28,5 +29,9 @@ object Deps {
 
     //koin
     const val koin = "io.insert-koin:koin-android:${Versions.koin}"
+
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+
+    const val multiDex = "androidx.multidex:multidex:${Versions.multiDex}"
 }
 

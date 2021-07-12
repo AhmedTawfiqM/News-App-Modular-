@@ -30,8 +30,8 @@ class NewsActivity : AppCompatActivity() {
     private fun observeNews() {
         newsViewModel.newsResponse().observe(this,
             {
-                Toast.makeText(this, "${it?.body()}", Toast.LENGTH_LONG).show()
-                setupAdapter(it!!.body())
+                if (it!!.isSuccessful)
+                    setupAdapter(it.body())
             })
     }
 

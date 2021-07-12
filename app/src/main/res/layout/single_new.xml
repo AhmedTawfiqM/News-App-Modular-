@@ -35,6 +35,7 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/ivArticle"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 

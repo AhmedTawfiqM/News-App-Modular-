@@ -9,6 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.atdev.news"
+        multiDexEnabled true
         minSdkVersion AppConfig.minSdkVersion
         targetSdkVersion AppConfig.targetSdkVersion
         versionCode AppConfig.versionCode
@@ -62,8 +63,4 @@ android {
 dependencies {
     api project(AppModules.presentation)
     api project(AppModules.data)
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }
